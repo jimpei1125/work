@@ -24,28 +24,28 @@ public class Qes1_13 {
 			・文字型・文字列型																	
 			・ブーリアン型*/
 
-		byte a;
-		short b;
-		int c;
-		long d;
-		float e;
-		double f;
-		char g;
-		String h;
-		boolean i;
+		byte byt;
+		short sho;
+		int in;
+		long lon;
+		float floa;
+		double doub;
+		char cha;
+		String Str;
+		boolean bool;
 
 		/*2																		
 		それぞれのローカル変数をローカル内でそれぞれの初期値を代入し初期化してください*/
 
-		a = 0;
-		b = 0;
-		c = 0;
-		d = 0;
-		e = 0;
-		f = 0;
-		g = '0';
-		h = "0";
-		i = true;
+		byt = 0;
+		sho = 0;
+		in = 0;
+		lon = 0L;
+		floa = 0.0f;
+		doub = 0.0d;
+		cha = '\u0000';
+		Str = "0";
+		bool = false;
 
 		/*3																		
 		初期化をしたそれぞれの変数に下記の値を代入してください																	
@@ -59,15 +59,15 @@ public class Qes1_13 {
 		・文字列型		ハロー															
 		・ブーリアン型		true */
 
-		a = 10;
-		b = 100;
-		c = 1000;
-		d = 10000;
-		e = (float) 9.5;
-		f = 10.5;
-		g = 'a';
-		h = "ハロー";
-		i = true;
+		byt = 10;
+		sho = 100;
+		in = 1000;
+		lon = 10000;
+		floa = (float) 9.5;
+		doub = 10.5;
+		cha = 'a';
+		Str = "ハロー";
+		bool = true;
 
 		/*4																		
 		下記の通りにコンソール出力されるようにしてください																	
@@ -80,13 +80,13 @@ public class Qes1_13 {
 		0.105		0.105	10.5割る100をする														
 		-90		-90	10引く100をする */
 
-		System.out.println(a + b + c + d);
-		System.out.println(a + a);
-		System.out.println(g + h + i);
-		System.out.println(a + b + c + d + e + f);
-		System.out.println(a * b * c * d);
-		System.out.println(f / b);
-		System.out.println(a - b);
+		System.out.println(byt + sho + in + lon);
+		System.out.println(byt + byt);
+		System.out.println(cha + Str + bool);
+		System.out.println(byt + sho + in + lon + floa + doub);
+		System.out.println(byt * sho * in * lon);
+		System.out.println(doub / sho);
+		System.out.println(byt - sho);
 
 		/*5																		
 		次のプログラムを実行すると「ハローJAVA2023」という結果が表示されます。																	
@@ -129,7 +129,16 @@ public class Qes1_13 {
 		「BMIは○○です」																	
 		ただし計算は数値を直書きせず、全て変数を使ってすること */
 
-		System.out.println("BMIは" + weight / ((height / 100) * (height / 100)) + "です");
+		//BMI変数を作成
+		double bmi;
+		double afterBmi;
+
+		bmi = weight / ((height / 100) * (height / 100));
+		//小数点第一位まで表示（小数点第2位を切り捨てる）
+		long lonBmi = (Math.round(bmi * 10));
+		afterBmi = (double) lonBmi / 10;
+
+		System.out.println("BMIは" + afterBmi + "です");
 
 		/*〜〜〜ここまで完了で「1.5 変数①」にチェック〜〜〜																	
 																		
@@ -149,13 +158,18 @@ public class Qes1_13 {
 		weight = 64.2;
 		favfood = "オムライス";
 
+		bmi = weight / ((height / 100) * (height / 100));
+		//小数点第一位まで表示（小数点第2位を切り捨てる）
+		lonBmi = (Math.round(bmi * 10));
+		afterBmi = (double) lonBmi / 10;
+
 		//記述
 		System.out.println("初めまして" + name + "です");
 		System.out.println("年齢は" + age + "歳です");
 		System.out.println("身長は" + height + "cmです");
 		System.out.println("体重は" + weight + "kgです");
 		System.out.println("好きな食べ物は" + favfood + "です");
-		System.out.println("BMIは" + weight / ((height / 100) * (height / 100)) + "です");
+		System.out.println("BMIは" + afterBmi + "です");
 
 		/*
 		9																		
@@ -167,17 +181,33 @@ public class Qes1_13 {
 		　好きな食べ物はオムライスです																	
 		　BMIは11.31です */
 
+		//bmi 第二位まで切り捨て
+		afterBmi = (Math.ceil(bmi * 100) / 100);
+
+		//変数自己代入
+		age += age;
+		height += height;
+		weight += weight;
+		bmi = weight / ((height / 100) * (height / 100));
+		//小数点第2位まで表示（小数点第3位を切り捨てる）
+		lonBmi = (Math.round(bmi * 100));
+		afterBmi = (double) lonBmi / 100;
+
 		//記述
 		System.out.println("初めまして" + name + "です");
-		System.out.println("年齢は" + (age * 2) + "歳です");
-		System.out.println("身長は" + (height * 2) + "cmです");
-		System.out.println("体重は" + (weight * 2) + "kgです");
+		System.out.println("年齢は" + age + "歳です");
+		System.out.println("身長は" + height + "cmです");
+		System.out.println("体重は" + weight + "kgです");
 		System.out.println("好きな食べ物は" + favfood + "です");
-		System.out.println("BMIは" + (weight / ((height / 100) * (height / 100)) / 2) + "です");
+		System.out.println("BMIは" + afterBmi + "です");
 
 		/* 10																		
 		8で使用した年齢が25歳以上ならtrueが出力されるようにしてください。ただしif文は使いません
 		*/
+
+		age = 24;
+		height = 168.5;
+		weight = 64.2;
 
 		System.out.println(age >= 25);
 
@@ -204,8 +234,6 @@ public class Qes1_13 {
 		/*13																		
 		12で変換した【年齢・身長】で【年齢が25もしくは身長が160以上】であればtrueを出力してください																	
 		ただしif文は使わないでください*/
-		
-		
 
 		System.out.println(ageInt == 25 || heightInt >= 160);
 
