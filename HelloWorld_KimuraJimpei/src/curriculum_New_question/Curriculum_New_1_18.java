@@ -44,17 +44,18 @@ public class Curriculum_New_1_18 {
 
 	// Q6：引数にQ5で作成したメソッドの返り値を受け取り、受け取った配列の要素の平均値をコンソールに出力するメソッドを作成してください。
 	// ※小数点以下も表示されるようにしてください。
-	public static void printAverage(List<Integer> list) {
-		if (list == null || list.isEmpty()) { //空リストの場合、0.0を出して即終了させる
+	public static double printAverage(List<Integer> list) {
+		if (list == null || list.isEmpty()) {
 			System.out.println("平均値: 0.0");
-			return;
+			return 0.0;
 		}
-		double sum = 0; //小数点以下のためdouble
+		double sum = 0;
 		for (int num : list) {
 			sum += num;
 		}
 		double average = sum / list.size();
 		System.out.println("平均値: " + average);
+		return average; // 外側で使えるよう返す
 	}
 
 	// Q7：引数にQ6で作成したメソッドの返り値を受け取り、受け取った値が50以上ならばtrueそれ以外はfalseを返しコンソールに出力してください
@@ -81,20 +82,13 @@ public class Curriculum_New_1_18 {
 		multiplyAndPrint(2.5, 4.3); //2.5と4.3を渡す場合
 
 		//Q5
-		generateRandomNumbers(5); //5を渡す(5回繰り返す)
+		List<Integer> randomNumbers = generateRandomNumbers(5); //5を渡す(5回繰り返す)
 
 		//Q6
-		List<Integer> nums = generateRandomNumbers(5); // 乱数5個生成
-		printAverage(nums); // 平均値を出力
+		double average = printAverage(randomNumbers); //平均値を受け取る
 
 		//Q7
-		List<Integer> randomNumbers = generateRandomNumbers(5); //乱数5個生成
-		double average = randomNumbers.stream() // 平均値を計算
-				.mapToInt(Integer::intValue) //intに型変換
-				.average() //ストリーム要素の平均値
-				.orElse(0.0); //空リストの場合、0.0と出す。
-
-		isAverageAtLeastFifty(average);//メソッド呼び出し true or false
+		isAverageAtLeastFifty(average); //メソッド呼び出し true or false
 
 	}
 
