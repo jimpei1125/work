@@ -17,6 +17,7 @@ class Person {
 	}
 
 	public double bmi() {
+		//小数点2位 切り捨て
 		return Math.floor((this.weight / (this.height * this.height)) * 100) / 100.0;
 	}
 
