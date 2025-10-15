@@ -18,7 +18,8 @@ class Person {
 	}
 
 	double bmi() {
-		return weight / (height * height);
+		double bmi = weight / (height * height);
+		return Math.floor(bmi * 100) / 100.0; // 小数点2位で切り捨て
 	}
 
 	void print() {
